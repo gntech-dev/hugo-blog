@@ -51,6 +51,7 @@ defaultContentLanguage = "en"
 [[menu.main]]
   identifier = "categories"
   name = "Categories"
+  url = "/categories/"
   weight = 3
 
 [[menu.main]]
