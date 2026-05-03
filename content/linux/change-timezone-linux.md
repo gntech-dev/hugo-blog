@@ -1,14 +1,14 @@
 ---
 title: "How to Change Timezone in Linux (Ubuntu, CentOS, Fedora, Arch)"
 date: 2025-11-24
-draft: false
-categories: ["Linux"]
-tags: ["timezone", "sysadmin", "linux"]
+categories: [linux]
+tags: [timezone, sysadmin, linux]
 ---
 
 Changing the timezone on a Linux system is a common task for system administrators, especially when managing servers in different regions or for users traveling. This guide covers how to change the timezone on various Linux distributions, including systemd-based systems and older ones.
 
 ## Prerequisites
+
 - Root or sudo access to the system.
 - Basic knowledge of the command line.
 
@@ -56,20 +56,27 @@ timedatectl
 For systems without systemd:
 
 1. Install `tzdata` if not present:
+
    ```bash
    sudo apt install tzdata  # Ubuntu/Debian
    sudo yum install tzdata  # CentOS/RHEL
    ```
+
 2. Run the timezone configuration tool:
+
    ```bash
    sudo dpkg-reconfigure tzdata  # Ubuntu/Debian
    sudo tzselect                    # Interactive selection
    ```
+
    Or manually set the timezone:
+
    ```bash
    sudo ln -sf /usr/share/zoneinfo/America/New_York /etc/localtime
    ```
+
 3. Update `/etc/timezone` if it exists:
+
    ```bash
    echo "America/New_York" | sudo tee /etc/timezone
    ```
@@ -93,3 +100,5 @@ The output should show the new timezone.
 ## Conclusion
 
 Changing the timezone in Linux is straightforward once you know the right commands for your distribution. For modern systems, `timedatectl` is the recommended tool. Always verify the change and consider the impact on scheduled tasks or logs.
+
+For more Linux sysadmin tips, check out our other tutorials!

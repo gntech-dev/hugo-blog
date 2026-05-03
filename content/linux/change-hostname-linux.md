@@ -1,9 +1,8 @@
 ---
 title: "Change Hostname on Linux (Ubuntu, Debian, CentOS, Fedora, Arch)"
 date: 2025-11-24
-draft: false
-categories: ["Linux"]
-tags: ["hostname", "sysadmin", "linux"]
+categories: [linux]
+tags: [hostname, sysadmin, linux]
 ---
 
 This post shows safe, distro-agnostic ways to change the system hostname and covers common variations (systemd, init-based, NetworkManager, cloud-init, and containers).
