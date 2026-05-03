@@ -1,4 +1,4 @@
-baseURL = "https://YOUR-PAGES-NAME.pages.dev/"
+baseURL = "https://blog.gntech.me/"
 languageCode = "en-us"
 title = "GnTech's Blog"
 theme = "PaperMod"
