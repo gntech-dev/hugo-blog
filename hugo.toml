@@ -81,13 +81,18 @@ defaultContentLanguage = "en"
   url = "/tags/"
   weight = 4
 
+[params.fuseOpts]
+  threshold = 0.3
+  distance = 150
+  ignoreLocation = true
+  keys = ["title", "summary", "content"]
+
 [[menu.main]]
   name = "Contact"
   url = "mailto:gnogeek@gmail.com"
   weight = 5
 
-# Optional client-side search
-#[[menu.main]]
-#  name = "Search"
-#  url = "/search/"
-#  weight = 6
+[[menu.main]]
+  name = "Search"
+  url = "/search/"
+  weight = 6
