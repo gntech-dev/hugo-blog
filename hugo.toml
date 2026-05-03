@@ -12,3 +12,27 @@ theme = "PaperMod"
   name = "Categories"
   url = "/categories/"
   weight = 10
+
+[[menu.main]]
+  parent = "categories"
+  name = "Linux"
+  url = "/categories/linux/"
+  weight = 11
+
+[[menu.main]]
+  parent = "categories"
+  name = "Networking"
+  url = "/categories/networking/"
+  weight = 12
+
+[[menu.main]]
+  parent = "categories"
+  name = "Docker"
+  url = "/categories/docker/"
+  weight = 13
+
+[[menu.main]]
+  parent = "categories"
+  name = "Security"
+  url = "/categories/security/"
+  weight = 14
