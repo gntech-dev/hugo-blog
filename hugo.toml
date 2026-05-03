@@ -10,7 +10,6 @@ theme = "PaperMod"
 [[menu.main]]
   identifier = "categories"
   name = "Categories"
-  url = "/categories/"
   weight = 10
 
 [[menu.main]]
