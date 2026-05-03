@@ -2,3 +2,13 @@ baseURL = "https://blog.gntech.me/"
 languageCode = "en-us"
 title = "GnTech's Blog"
 theme = "PaperMod"
+
+[taxonomies]
+  category = "categories"
+  tag = "tags"
+
+[[menu.main]]
+  identifier = "categories"
+  name = "Categories"
+  url = "/categories/"
+  weight = 10
