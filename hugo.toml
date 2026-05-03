@@ -22,6 +22,7 @@ defaultContentLanguage = "en"
   description = "GnTech's Blog — Linux, networking, homelab, automation, and open source experiments."
   author = "GnTech"
   env = "production"
+  comments = true
   DateFormat = "January 2, 2006"
   defaultTheme = "auto"
   ShowBreadCrumbs = true
@@ -86,6 +87,12 @@ defaultContentLanguage = "en"
   distance = 150
   ignoreLocation = true
   keys = ["title", "summary", "content"]
+
+[params.giscus]
+  repo = "gntech-dev/hugo-blog"
+  repoId = "R_kgDOSSzNwQ"
+  category = "Comments"
+  categoryId = "" # TODO: enable Discussions, create "Comments" category, fill this
 
 [[menu.main]]
   name = "Contact"
