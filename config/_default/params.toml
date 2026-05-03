@@ -1,0 +1,9 @@
+[params.author]
+name = "Gerlin Nolasco (GnTech)"
+bio = "Sysadmin, network nerd, Dominican Republic. Focused on automation, Linux, and building cool projects."
+avatar = "/img/profile.jpg" # Upload a photo as static/img/profile.jpg when ready
+socialIcons = [
+  { name = "github", url = "https://github.com/gnogeek" },
+  { name = "linkedin", url = "https://www.linkedin.com/in/gnolascohernandez/" },
+  { name = "email", url = "mailto:gnolasco@gntech.me" }
+]
