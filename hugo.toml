@@ -1,0 +1,4 @@
+baseURL = "https://YOUR-PAGES-NAME.pages.dev/"
+languageCode = "en-us"
+title = "GnTech's Blog"
+theme = "PaperMod"
