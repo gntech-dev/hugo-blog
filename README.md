@@ -57,7 +57,14 @@ Access local site at [http://localhost:1313](http://localhost:1313)
 ## ⚡ Deployment to Cloudflare Pages
 **Overview:** Pushing to `main` branch will trigger a deploy on Cloudflare Pages via the GitHub <-> Cloudflare integration or Actions.
 
-### Secrets needed for deployment
+### Build settings for Cloudflare Pages
+> **Note:** This repo ships with a `.cfpages.toml` file that tells Cloudflare Pages exactly how to build & serve your site. All you have to do is link the repo in the Pages dashboard.
+
+- **Build Command:** `hugo`
+- **Output Directory:** `public`
+- **Hugo Version:** Controlled by `.hugover` file (default: 0.121.2)
+
+### Required Secrets
 In your repo’s GitHub settings > Secrets and variables > Actions, set:
 - `CF_API_TOKEN`: [How to Create](https://developers.cloudflare.com/api/keys/create-token/): Pages Write permissions, scoped to your account/project.
 - `CF_ACCOUNT_ID`: Find in Cloudflare dashboard under your profile/account.
