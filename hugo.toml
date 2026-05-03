@@ -8,6 +8,16 @@ defaultContentLanguage = "en"
   category = "categories"
   tag = "tags"
 
+[outputs]
+  home = ["HTML", "RSS"]
+  page = ["HTML", "RSS"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  term = ["HTML", "RSS"]
+
+[services.rss]
+  limit = 10
+
 [params]
   env = "production"
   DateFormat = "January 2, 2006"
