@@ -19,6 +19,8 @@ defaultContentLanguage = "en"
   limit = 10
 
 [params]
+  description = "GnTech's Blog — Linux, networking, homelab, automation, and open source experiments."
+  author = "GnTech"
   env = "production"
   DateFormat = "January 2, 2006"
   defaultTheme = "auto"
@@ -29,7 +31,7 @@ defaultContentLanguage = "en"
   ShowShareButtons = true
   ShowToc = true
   ShowLastMod = true
-  homeInfoParams = { Title = "Welcome to GnTech.Me!", Content = "Automation, sysadmin, networking, open source and daily experiments. You’ll find guides, homelab notes, camera/security, dashboards, home assistant setups, and all sorts of experiments here. Managed by Zeno 🤖 and GnTech." }
+  homeInfoParams = { Title = "Welcome to GnTech.Me!", Content = "Automation, sysadmin, networking, open source and daily experiments. You'll find guides, homelab notes, camera/security, dashboards, home assistant setups, and all sorts of experiments here. Managed by Zeno 🤖 and GnTech." }
 
 [params.assets]
   favicon = "favicon.ico"

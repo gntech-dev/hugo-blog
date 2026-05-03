@@ -5,6 +5,7 @@ categories: ["Networking", "MikroTik", "Homelab"]
 tags: ["mikrotik", "routeros", "vlan", "ipv6", "homelab", "networking"]
 author: "GnTech"
 draft: false
+aliases: ["/networking/mikrotik-vlan-design-homelab/"]
 summary: "Building a secure MikroTik homelab network with VLANs, IPv6, PPPoE, and firewall rules for better segmentation and manageability."
 images: ["https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
