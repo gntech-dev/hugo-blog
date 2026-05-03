@@ -91,8 +91,8 @@ defaultContentLanguage = "en"
 [params.giscus]
   repo = "gntech-dev/hugo-blog"
   repoId = "R_kgDOSSzNwQ"
-  category = "Comments"
-  categoryId = "" # TODO: enable Discussions, create "Comments" category, fill this
+  category = "General"
+  categoryId = "DIC_kwDOSSzNwc4C8QtB"
 
 [[menu.main]]
   name = "Contact"
