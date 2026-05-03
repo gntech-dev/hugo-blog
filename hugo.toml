@@ -2,36 +2,80 @@ baseURL = "https://blog.gntech.me/"
 languageCode = "en-us"
 title = "GnTech's Blog"
 theme = "PaperMod"
+defaultContentLanguage = "en"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
 
+[params]
+  env = "production"
+  DateFormat = "January 2, 2006"
+  defaultTheme = "auto"
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  ShowPostNavLinks = true
+  ShowReadingTime = true
+  ShowShareButtons = true
+  ShowToc = true
+  ShowLastMod = true
+  homeInfoParams = { Title = "Welcome to GnTech.Me!", Content = "Automation, sysadmin, networking, open source and daily experiments. You’ll find guides, homelab notes, camera/security, dashboards, home assistant setups, and all sorts of experiments here. Managed by Zeno 🤖 and GnTech." }
+
+[params.assets]
+  favicon = "favicon.ico"
+  disableFingerprinting = false
+
+[[menu.main]]
+  name = "Home"
+  url = "/"
+  weight = 1
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 2
+
 [[menu.main]]
   identifier = "categories"
   name = "Categories"
-  weight = 10
+  weight = 3
 
 [[menu.main]]
   parent = "categories"
   name = "Linux"
   url = "/categories/linux/"
-  weight = 11
+  weight = 1
 
 [[menu.main]]
   parent = "categories"
   name = "Networking"
   url = "/categories/networking/"
-  weight = 12
+  weight = 2
 
 [[menu.main]]
   parent = "categories"
   name = "Docker"
   url = "/categories/docker/"
-  weight = 13
+  weight = 3
 
 [[menu.main]]
   parent = "categories"
   name = "Security"
   url = "/categories/security/"
-  weight = 14
+  weight = 4
+
+[[menu.main]]
+  name = "Tags"
+  url = "/tags/"
+  weight = 4
+
+[[menu.main]]
+  name = "Contact"
+  url = "mailto:gnogeek@gmail.com"
+  weight = 5
+
+# Optional client-side search
+#[[menu.main]]
+#  name = "Search"
+#  url = "/search/"
+#  weight = 6
