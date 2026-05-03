@@ -3,7 +3,9 @@ title: "Complete Guide: Installing Docker on Linux with Non-Root Access"
 date: 2025-01-06
 categories: [Docker, Linux, Tutorial]
 tags: [docker, linux, non-root, installation, guide]
-author: gnolasco
+author: GnTech
+summary: "Complete guide to installing Docker on Linux and configuring it for non-root access to enhance security."
+images: ["https://images.unsplash.com/photo-1618401471353-b98afee0b2eb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
 
 Docker simplifies application deployment with containerization. Running Docker without root enhances security and streamlines workflows. This guide will walk you through installing Docker on Linux and configuring it for non-root usage.

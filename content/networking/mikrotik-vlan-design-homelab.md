@@ -3,8 +3,10 @@ title: "Designing a VLAN-Based Homelab Network with MikroTik"
 date: 2026-03-15
 categories: ["Networking", "MikroTik", "Homelab"]
 tags: ["mikrotik", "vlan", "homelab", "network-design", "routeros", "ipv6"]
-author: "gnolasco"
+author: "GnTech"
 draft: false
+summary: "Designing a secure and scalable VLAN architecture using a MikroTik router for homelab isolation, security, and manageability."
+images: ["https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
 
 Segmenting a home network using VLANs brings many of the benefits of enterprise network design into a homelab environment.

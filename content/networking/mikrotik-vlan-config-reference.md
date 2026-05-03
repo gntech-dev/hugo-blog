@@ -3,8 +3,10 @@ title: "MikroTik VLAN Homelab Configuration Reference"
 date: 2026-03-15
 categories: ["Networking", "MikroTik", "Homelab"]
 tags: ["mikrotik", "routeros", "vlan", "config", "ipv6", "firewall"]
-author: "gnolasco"
+author: "GnTech"
 draft: false
+summary: "Reference configuration for a MikroTik homelab network with VLAN segmentation, IPv6, firewall rules, and PPPoE setup."
+images: ["https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
 
 This page contains a sanitized reference configuration for the MikroTik homelab network described in the main article. Sensitive values such as PPPoE credentials have been replaced with placeholders.

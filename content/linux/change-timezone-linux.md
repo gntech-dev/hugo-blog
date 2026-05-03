@@ -3,6 +3,9 @@ title: "How to Change Timezone in Linux (Ubuntu, CentOS, Fedora, Arch)"
 date: 2025-11-24
 categories: [linux]
 tags: [timezone, sysadmin, linux]
+author: GnTech
+summary: "Step-by-step guide to changing the timezone on various Linux distributions, including systemd and older systems."
+images: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
 
 Changing the timezone on a Linux system is a common task for system administrators, especially when managing servers in different regions or for users traveling. This guide covers how to change the timezone on various Linux distributions, including systemd-based systems and older ones.

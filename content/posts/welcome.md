@@ -4,6 +4,9 @@ date: 2026-05-02T22:40:00-04:00
 draft: false
 author: "GnTech"
 description: "A new beginning for tech, automation, sysadmin tricks, and more."
+summary: "Welcome to GnTech Blog, where I share insights on automation, blogging, server administration, home labs, camera setups, and more."
+images: ["https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
+tags: ["blog", "introduction", "GnTech", "tech"]
 ---
 
 Welcome to the GnTech Blog!

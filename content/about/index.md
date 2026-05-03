@@ -1,7 +1,10 @@
 ---
 title: "About Me"
 description: "Who runs this blog"
+author: GnTech
 draft: false
+summary: "About Gerlin Nolasco, the sysadmin and blogger behind GnTech, sharing tech guides and homelab projects."
+images: ["https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
 
 ## About Gerlin Nolasco (GnTech)

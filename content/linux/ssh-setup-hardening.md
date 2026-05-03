@@ -4,7 +4,9 @@ date: 2026-03-04
 draft: false
 categories: ["Linux", "Security"]
 tags: ["ssh", "linux", "security", "private-keys", "hardening", "sysadmin"]
-author: gnolasco
+author: GnTech
+summary: "Complete guide to securing SSH with private keys, hardening server configuration, and best practices for Linux administrators."
+images: ["https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
 
 Secure Shell (SSH) is the standard protocol for remotely managing Linux systems. While password authentication works, it is significantly less secure than key-based authentication. Using SSH private keys improves security, prevents brute-force attacks, and enables safer automation for administrators.
