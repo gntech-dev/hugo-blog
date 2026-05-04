@@ -1,29 +1,29 @@
 ---
-title: "Deploying Frigate NVR with Docker: Full Setup Guide"
-date: 2026-05-04T02:52:00-04:00
+title: "Deploying Frigate NVR with Docker: Comprehensive Guide (CPU, Coral, iGPU)"
+date: 2026-05-04T02:55:00-04:00
 categories: ["Docker", "Frigate", "Tutorial"]
-tags: ["frigate", "docker", "NVR", "cameras", "ai", "object-detection", "self-hosted"]
+tags: ["frigate", "docker", "NVR", "cameras", "ai", "object-detection", "hardware-acceleration", "intel", "igpu", "vaapi", "self-hosted"]
 draft: false
 author: "GnTech"
-summary: "Step-by-step guide to deploying Frigate—an open-source NVR with real-time AI object detection—using Docker. Includes hardware tips, configuration, and securing your instance."
+summary: "Definitive Frigate NVR setup guide for Docker: CPU-only, Google Coral, and Intel iGPU (VAAPI) acceleration. Includes docker-compose, detection tuning, troubleshooting, and security tips."
 images: ["https://images.unsplash.com/photo-1490697431894-982bcfd0cd16?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&h=600&q=80"]
 ---
 
-Frigate is a powerful, open-source NVR that uses AI object detection for reliable camera automation and security alerts. Here’s how to run it using Docker on your own hardware.
+Frigate is an advanced open-source NVR with AI detection—fast, accurate, and highly tunable. Here’s how to deploy Frigate on Docker, covering CPU, Google Coral, and Intel iGPU (hardware acceleration) setups for best performance.
 
 ## Prerequisites
-- Linux server (x86, ARM, or x86 with Coral TPU recommended)
-- Docker and Docker Compose installed ([installation guide](https://docs.docker.com/get-docker/))
-- At least one IP camera (RTSP, RTMP, or HTTP stream supported)
-- SSD or fast storage for recordings
+- Linux server (x86, ARM, or x86 with iGPU)
+- Docker and Docker Compose ([install guide](https://docs.docker.com/get-docker/))
+- At least one RTSP/RTMP/HTTP camera
+- SSD/fast storage recommended
 
-## 1. Create a Project Directory
+## 1. Create Project Directory
 ```bash
 mkdir -p ~/frigate && cd ~/frigate
 ```
 
 ## 2. Sample docker-compose.yml
-Paste this into `docker-compose.yml`:
+Start with this as `docker-compose.yml` (supports CPU, Coral, or Intel iGPU with config tweaks):
 
 ```yaml
 version: '3.9'
@@ -31,26 +31,54 @@ services:
   frigate:
     container_name: frigate
     image: blakeblackshear/frigate:stable
-    privileged: true  # Needed for hardware access (USB Coral, etc)
+    privileged: true
     shm_size: '512mb'
-    devices:
-      - /dev/bus/usb:/dev/bus/usb  # For USB Coral
+    environment:
+      - FRIGATE_RTSP_PASSWORD=yourCameraPassword
     volumes:
       - ./config:/config
       - ./media:/media
       - /etc/localtime:/etc/localtime:ro
     ports:
-      - "5000:5000"  # Web UI
-      - "1935:1935"  # RTMP
-    environment:
-      - FRIGATE_RTSP_PASSWORD=yourCameraPassword
+      - "5000:5000" # Web UI
+      - "1935:1935" # RTMP (optional)
     restart: unless-stopped
+#    devices:
+#      - /dev/bus/usb:/dev/bus/usb        # For USB Coral
+#      - /dev/dri/renderD128:/dev/dri/renderD128 # For Intel iGPU
 ```
 
-## 3. Configure Frigate
-Create a config file: `config/config.yml`
+Uncomment only one of the devices sections below, per your hardware.
 
+### For Google Coral TPU (USB/PCIe)
+Uncomment/add:
 ```yaml
+    devices:
+      - /dev/bus/usb:/dev/bus/usb  # USB Coral
+# For PCIe, add:
+#      - /dev/apex_0:/dev/apex_0
+```
+Frigate will detect and use it automatically for AI detection.
+
+### For Intel iGPU (Quick Sync, VAAPI/QSV)
+1. Install drivers:
+   ```bash
+   sudo apt install -y intel-media-va-driver vainfo
+   sudo usermod -aG video $(whoami)
+   reboot   # Or log out/in for group changes
+   ```
+2. Add device to compose:
+   ```yaml
+    devices:
+      - /dev/dri/renderD128:/dev/dri/renderD128
+   ```
+3. Set Frigate config for hwaccel
+
+## 3. Create Frigate Config
+Place at `config/config.yml`. Example for iGPU (VAAPI):
+```yaml
+detect:
+  hwaccel_args: preset-vaapi
 mqtt:
   host: mqtt.example.com
   user: mqttuser
@@ -69,27 +97,32 @@ cameras:
 record:
   enabled: True
 ```
-Adjust to match your cameras and setup.
+
+See [Frigate docs](https://docs.frigate.video/configuration/hardware-acceleration/) for Coral, QSV, and VAAPI.
+
+### CPU-Only? No hardware setup needed—leave `devices:` blank and omit `hwaccel_args` for CPU detection (least efficient).
 
 ## 4. Start Frigate
 ```bash
 docker-compose up -d
 ```
-Access the UI at `http://your-server-ip:5000/`.
+Access UI: `http://your-server-ip:5000/`
 
-## 5. Hardware Acceleration (Optional)
-- USB Coral (recommended for AI detection):
-  - Plug in and Frigate auto-detects under `/dev/bus/usb`.
-- For CPU-only systems, detection will be slower.
+## 5. Performance & Troubleshooting
+- Check Frigate logs (`docker logs frigate`) for hardware detection.
+- Use `vainfo` on host to verify iGPU detection (if using VAAPI).
+- For Coral: check `dmesg | grep coral`.
+- Got “no decoder surfaces” or “Not a supported Intel GPU”? Make sure your processor supports Quick Sync (6th gen+ Intel Core recommended).
 
-## 6. Securing & Maintaining Frigate
-- Do not expose port 5000 to the public internet without protection.
-- Set strong MQTT and camera passwords.
-- Keep configs and media backed up.
+## 6. Security Checklist
+- NEVER expose port 5000 to the internet.
+- Use strong passwords and separate VLANs for cameras.
+- Backup configs/media.
 
 ## Resources
 - [Frigate Docs](https://docs.frigate.video/)
-- [Frigate GitHub](https://github.com/blakeblackshear/frigate)
+- [Hardware Acceleration Tips](https://docs.frigate.video/configuration/hardware-acceleration/)
+- [Recommended Cameras](https://docs.frigate.video/hardware/cameras/)
 - [Home Assistant Integration](https://www.home-assistant.io/integrations/frigate/)
 
-Need more camera tips or automation guides? Let me know!
+Questions, HW issues, or want automation recipes? Just ask!
